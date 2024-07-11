@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Errand History</h2>
+<ul>
+    {% for errand in errands %}
+        <li>
+            {{ errand.description }} - {{ errand.status }} - {{ errand.price }}
+            <a href="{{ url_for('errand_details', errand_id=errand.id) }}">View Details</a>
+        </li>
+    {% endfor %}
+</ul>
+{% endblock %}

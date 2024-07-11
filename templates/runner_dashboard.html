@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Runner Dashboard</h2>
+<ul>
+    {% for errand in errands %}
+        <li>
+            {{ errand.description }} - {{ errand.price }} - {{ errand.due_date }}
+            <a href="{{ url_for('accept_errand', errand_id=errand.id) }}">Accept</a>
+        </li>
+    {% endfor %}
+</ul>
+{% endblock %}

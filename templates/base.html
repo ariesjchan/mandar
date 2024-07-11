@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mandar - Errand Services</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <nav>
+        <a href="{{ url_for('homepage') }}">Home</a>
+        {% if current_user.is_authenticated %}
+            {% if current_user.is_runner %}
+                <a href="{{ url_for('runner_dashboard') }}">Runner Dashboard</a>
+            {% else %}
+                <a href="{{ url_for('user_dashboard') }}">User Dashboard</a>
+                <a href="{{ url_for('create_errand') }}">Create Errand</a>
+            {% endif %}
+            <a href="{{ url_for('profile') }}">Profile</a>
+            <a href="{{ url_for('messages') }}">Messages</a>
+            <a href="{{ url_for('notifications') }}">Notifications</a>
+            <a href="{{ url_for('errand_history') }}">Errand History</a>
+            {% if current_user.is_admin %}
+                <a href="{{ url_for('admin_dashboard') }}">Admin Dashboard</a>
+            {% endif %}
+            <a href="{{ url_for('logout') }}">Logout</a>
+        {% else %}
+            <a href="{{ url_for('login') }}">Login</a>
+            <a href="{{ url_for('register') }}">Register</a>
+        {% endif %}
+    </nav>
+    <div class="content">
+        {% block content %}{% endblock %}
+    </div>
+    <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
+</body>
+</html>
