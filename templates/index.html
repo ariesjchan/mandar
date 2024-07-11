@@ -1,9 +1,0 @@
-{% extends "base.html" %}
-
-{% block content %}
-{% for post in posts %}
-    <article>
-        <h2>{{ post.metadata.title }}</h2> <div>{{ post.raw_content|markdown|safe }}</div>
-    </article>
-{% endfor %}
-{% endblock %}
