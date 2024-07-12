@@ -24,5 +24,5 @@ Mandar is a web application for managing errand services. Users can create erran
 1. **Clone the repository:**
 
    ```bash
-   git clone https://github.com/yourusername/mandar.git
+   git clone https://github.com/ariesjchan/mandar.git
    cd mandar
